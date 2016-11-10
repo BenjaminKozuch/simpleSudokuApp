@@ -1,4 +1,8 @@
 class PuzzlesController < ApplicationController
-  def solve
+  def new
+  	@puzzle = Puzzle.new
+  end
+
+  def create
   end
 end

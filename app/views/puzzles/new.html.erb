@@ -1,0 +1,39 @@
+<h1>Puzzles#new</h1>
+<p>Find me in app/views/puzzles/new.html.erb</p>
+
+
+
+<%= form_for @puzzle do |f|%>
+	<table id="main">
+		
+	  <% (0..8).each do |square| %>
+
+	    <% if square % 3 == 0 %>
+	      <tr>
+	    <%end%>
+
+	    <td>
+	      <table id="inner">
+	        <% (0..8).each do |place| %>
+	          <% if place % 3 == 0 %>
+	            <tr>
+	          <% end %>
+	              <td>
+	                 <%= f.text_field "#{square}_#{place}", :class => "square" %>
+	              </td>
+	          <% if place % 3 == 2 %>
+	            </tr>
+	          <% end %>
+	        <% end %>
+	      </table>
+	    </td>
+
+	    <% if square % 3 == 2 %>
+	      </tr>
+	    <%end%>
+
+	  <% end %>
+
+	</table>
+
+<% end %>
